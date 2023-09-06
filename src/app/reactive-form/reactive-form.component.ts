@@ -45,7 +45,7 @@ export class ReactiveFormComponent implements OnInit {
       state: [''],
       postalCode: [''],
     }),
-    emial: [''],
+    email: [''],
     subscribe: [false],
   }, {validator: PasswordValidator})
   
@@ -58,7 +58,9 @@ export class ReactiveFormComponent implements OnInit {
         city: 'Karachi',
         state: 'Sindh',
         postalCode: '74200'
-      }
+      },
+      email: "",
+      subscribe: false,
     })
   }
 }
