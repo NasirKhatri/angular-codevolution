@@ -1,0 +1,112 @@
+<p>test works!</p>
+<p>{{getRemarks()}}</p>
+<p>Page URL is {{siteURL}}</p>
+<input [id]="myID" type="text" value="Nasir"/>
+<input id="{{myID}}" type="text" value="Nasir"/> <!--It worked because value is stirng-->
+<input disabled="{{false}}" type="text" value="Nasir"/> <!--Note disabled has no effect-->
+<input [disabled]="false" type="text" value="Nasir"/> <!--Hence it better to use square brackets instead of interpolation when property binding-->
+
+<br><br>
+<p>Below ngClass directive is used</p>
+<h2 [ngClass]="messageClasses">Nasir Khatri</h2>
+
+<br><br>
+<p>Below style is added conditionally</p>
+<h2 [style.color]="hasError ? 'red' : 'greed'">Conditionally added inline styles</h2>
+
+<br><br>
+<h2 [ngStyle]="titleStyle">Style Binding 3 using [ngStyle] directive</h2>
+
+<br><br>
+<p>Below two way binding is illustratd</p>
+<button (click)="onClick($event)">Click Me</button> <!--Passing event as argument is optional-->
+{{greet}}
+
+<br><br>
+<p>Below template reference variable is illustrated</p>
+<input #myInput type="text"/>
+<button (click)="log(myInput.value)" >Log</button>
+
+<br><br>
+<p>Below two way binding is demonstrated</p>
+<input type="text" [(ngModel)]="name" />
+{{name}}
+
+<br><br>
+<h1>Structural Directives</h1>
+<ul>
+    <li>ngIf</li>
+    <li>ngSwitch</li>
+    <li>ngFor</li>
+</ul>
+
+<h2>ngIf</h2>
+<h2 *ngIf="display; else elseBlock">Name is displayed i.e Nasir</h2>
+<ng-template #elseBlock>
+    <h2>Name is hidden</h2>
+</ng-template>
+
+<p>Alternative way of writing ngIf</p>
+<div *ngIf="display; then thenBlock; else elseBlock"></div>
+
+<ng-template #thenBlock>
+    <h2>Displaying then block</h2>
+</ng-template>
+
+<br><br>
+<h2>ngSwitch</h2>
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">Red</div>
+    <div *ngSwitchCase="'blue'">Blue</div>
+    <div *ngSwitchCase="'yellow'">Yellow</div>
+    <div *ngSwitchDefault>Default</div>
+</div>
+
+<br><br>
+<h2>ngFor</h2>
+<div *ngFor="let item of array; index as i">
+    <p>{{i}} {{item}}</p>
+</div>
+
+<br><br>
+<h2>Components interaction</h2>
+<p>Language name is recieved from Parent i.e. {{language}}</p>
+<button (click)="fireEvent()">Send data to Parent</button>
+
+<br><br>
+<h2>Pipes Illustration</h2>
+<p>{{name | lowercase}}</p>
+<p>{{name | uppercase}}</p>
+<p>{{name | titlecase}}</p>
+<br>
+<p>{{5.678 | number: '1.2-3'}}</p>
+<p>{{5.678 | number: '3.4-5'}}</p>
+<p>{{5.678 | number: '3.1-2'}}</p>
+<p>{{0.25 | percent}}</p>
+<p>{{250 | currency: "PKR"}}</p>
+<p>{{date}}</p>
+<p>{{date | date: 'short'}}</p>
+<p>{{date | date: 'shortDate'}}</p>
+<p>{{date | date: 'shortTime'}}</p>
+
+<h2>Dependency Injection</h2>
+<p>DI keeps the code flexible, testable and mutable, Classes can inherit external logic without knowing how to create it</p>
+<button type="button" (click)="getInfoFromServiceClass1()">Info 1</button>
+<ul *ngFor="let item of infoRecieved1">
+    <li>{{item}}</li>
+</ul>
+<button type="button" (click)="getInfoFromServiceClass2()">Info 2</button>
+<ul *ngFor="let item of infoRecieved2">
+    <li>{{item}}</li>
+</ul>
+<button type="button" (click)="getInfoFromServiceClass3()">Info 3</button>
+<ul *ngFor="let item of infoRecieved3">
+    <li>{{item}}</li>
+</ul>
+
+<div *ngFor="let employee of employees">
+    <p>{{employee.id}} | {{employee.name}} | {{employee.age}}</p>
+</div>
+{{errMsg}}
+
+

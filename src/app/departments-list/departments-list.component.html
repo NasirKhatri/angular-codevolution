@@ -1,0 +1,3 @@
+<ul *ngFor="let item of departments">
+    <li [class.selected]="isSelected(item)" (click)="onSelect(item)">{{item.name}}</li>
+</ul>
