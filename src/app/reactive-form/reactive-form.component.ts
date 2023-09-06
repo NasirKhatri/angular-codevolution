@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { forbiddenFormValidator } from '../shared/userName.validator';
 import { PasswordValidator } from '../shared/password.validator';
+import { RegistrationService } from '../registration.service';
 
 @Component({
   selector: 'app-reactive-form',
@@ -10,11 +11,50 @@ import { PasswordValidator } from '../shared/password.validator';
 })
 
 export class ReactiveFormComponent implements OnInit {
+  registrationForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  get email() {
+    return this.registrationForm.get("email");
+  }
+
+  get alternateEmails() {
+    return this.registrationForm.get('alternateEmails') as FormArray;
+  }
+
+  addAlternateEmails() {
+    this.alternateEmails.push(this.fb.control(''));
+  }
+
+  constructor(private fb: FormBuilder, private _registrationService: RegistrationService) {}
 
   ngOnInit(): void {
-    
+    this.registrationForm = this.fb.group({
+      //userName: ['Nasir', Validators.required], // if only one validation is required
+      userName: ['Nasir', [Validators.required, Validators.minLength(3), forbiddenFormValidator(/admin/)]],
+      password: [''],
+      confirmPassword: [''],
+      address: this.fb.group({
+        city: [''],
+        state: [''],
+        postalCode: [''],
+      }),
+      email: [''],
+      alternateEmails: this.fb.array([]),
+      subscribe: [false],
+    }, {validator: PasswordValidator})
+
+    this.registrationForm.get('subscribe')?.valueChanges.subscribe(
+      checkedValue => {
+        const email = this.registrationForm.get('email');
+        if(checkedValue) {
+          email?.setValidators(Validators.required);
+        }
+        else {
+          email?.clearValidators();
+        }
+        email?.updateValueAndValidity()
+      }
+    )
   }
 
   //option 1
@@ -35,19 +75,19 @@ export class ReactiveFormComponent implements OnInit {
   //option 2
   //Form builder will generate form controls for us with lesser code
   //note form builder is a service, hence we are required to inject it
-  registrationForm = this.fb.group({
-    //userName: ['Nasir', Validators.required], // if only one validation is required
-    userName: ['Nasir', [Validators.required, Validators.minLength(3), forbiddenFormValidator(/admin/)]],
-    password: [''],
-    confirmPassword: [''],
-    address: this.fb.group({
-      city: [''],
-      state: [''],
-      postalCode: [''],
-    }),
-    email: [''],
-    subscribe: [false],
-  }, {validator: PasswordValidator})
+  // registrationForm = this.fb.group({
+  //   //userName: ['Nasir', Validators.required], // if only one validation is required
+  //   userName: ['Nasir', [Validators.required, Validators.minLength(3), forbiddenFormValidator(/admin/)]],
+  //   password: [''],
+  //   confirmPassword: [''],
+  //   address: this.fb.group({
+  //     city: [''],
+  //     state: [''],
+  //     postalCode: [''],
+  //   }),
+  //   email: [''],
+  //   subscribe: [false],
+  // }, {validator: PasswordValidator})
   
   loadAPI() {
     this.registrationForm.setValue({ //when setting value using setValue we are required to pass complete structure,
@@ -61,6 +101,17 @@ export class ReactiveFormComponent implements OnInit {
       },
       email: "",
       subscribe: false,
+      alternateEmails: this.fb.array([]),
+    })
+  }
+
+  onSubmit() {
+    console.log('submit button is clicked');
+    console.log(this.registrationForm.value);
+    this._registrationService.register(this.registrationForm.value)
+    .subscribe({
+      next: (response) => console.log('Success'),
+      error: (error) => console.error('Error', error)
     })
   }
 }
