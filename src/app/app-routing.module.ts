@@ -9,6 +9,8 @@ import { DeptOverviewComponent } from './dept-overview/dept-overview.component';
 import { DeptContactComponent } from './dept-contact/dept-contact.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ParentInteractionComponent } from './parent-interaction/parent-interaction.component';
+import { ObservablesComponent } from './observables/observables.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/practice", pathMatch: "full"},
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: "practice", component: TestComponent},
   { path: "tdf", component: TemplateFormComponent},
   { path: "reactive-form", component: ReactiveFormComponent},
+  { path: "parent-child-interaction", component: ParentInteractionComponent},
+  { path: "observables", component: ObservablesComponent},
   { path: "**", component: PageNotFoundComponent} //wildcard route shold be last route in the configuration
 
 ];
@@ -43,5 +47,7 @@ export const routingComponents = [
   DeptOverviewComponent,
   DeptContactComponent,
   TemplateFormComponent,
-  ReactiveFormComponent
+  ReactiveFormComponent,
+  ParentInteractionComponent,
+  ObservablesComponent
 ];

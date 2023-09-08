@@ -9,26 +9,15 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 
 import { RecordsService } from './records.service';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { DepartmentDetailComponent } from './department-detail/department-detail.component';
-import { DeptOverviewComponent } from './dept-overview/dept-overview.component';
-import { DeptContactComponent } from './dept-contact/dept-contact.component';
-import { TemplateFormComponent } from './template-form/template-form.component';
-import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
-// import { DepartmentsListComponent } from './departments-list/departments-list.component';
-// import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { ChildInteractionComponent } from './child-interaction/child-interaction.component';
+import { ObservablesComponent } from './observables/observables.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     routingComponents,
-    PageNotFoundComponent,
-    DepartmentDetailComponent,
-    DeptOverviewComponent,
-    DeptContactComponent,
-    TemplateFormComponent,
-    ReactiveFormComponent
+    ChildInteractionComponent,
   ],
   imports: [
     BrowserModule,

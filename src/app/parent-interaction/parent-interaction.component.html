@@ -1,0 +1,13 @@
+<h1>Parent Component</h1>
+<input #userNameRef type="text" [ngModel]="userName" (ngModelChange)="greet($event)">
+<input type="text" [(ngModel)]="customerName">
+<button class="btn btn-primary m-2" (click)="login=false">Logout</button>
+<button class="btn btn-primary m-2" (click)="login=true">Login</button>
+<button class="btn btn-secondary m-2" (click)="child.greet()">Parent Btn</button>
+
+<h1>Teacher</h1>
+<button class="btn btn-primary m-2">Greet Student</button>
+<button class="btn btn-primary m-2">Appreciate Student</button>
+
+<app-child-interaction #child [login]='login'></app-child-interaction>
+
