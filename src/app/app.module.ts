@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
@@ -9,24 +9,32 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 
 import { RecordsService } from './records.service';
-import { ChildInteractionComponent } from './child-interaction/child-interaction.component';
-import { ObservablesComponent } from './observables/observables.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { PostsServiceService } from './posts-service.service';
+import { reducers } from './store/reducer';
+import { PostEffects } from './store/effect';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     routingComponents,
-    ChildInteractionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({}, {}),
+    StoreModule.forFeature('posts', reducers),
+    EffectsModule.forRoot([]),
+    EffectsModule.forFeature([PostEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
-  providers: [RecordsService],
+  providers: [RecordsService, PostsServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,6 +11,8 @@ import { TemplateFormComponent } from './template-form/template-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ParentInteractionComponent } from './parent-interaction/parent-interaction.component';
 import { ObservablesComponent } from './observables/observables.component';
+import { PostReduxComponent } from './post-redux/post-redux.component';
+import { ChildInteractionComponent } from './child-interaction/child-interaction.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/practice", pathMatch: "full"},
@@ -29,6 +31,7 @@ const routes: Routes = [
   { path: "reactive-form", component: ReactiveFormComponent},
   { path: "parent-child-interaction", component: ParentInteractionComponent},
   { path: "observables", component: ObservablesComponent},
+  { path: "ngrx", component: PostReduxComponent},
   { path: "**", component: PageNotFoundComponent} //wildcard route shold be last route in the configuration
 
 ];
@@ -49,5 +52,7 @@ export const routingComponents = [
   TemplateFormComponent,
   ReactiveFormComponent,
   ParentInteractionComponent,
-  ObservablesComponent
+  ObservablesComponent,
+  PostReduxComponent,
+  ChildInteractionComponent
 ];
