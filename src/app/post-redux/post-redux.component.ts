@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, filter } from 'rxjs';
 import * as PostActions from 'src/app/store/actions'
 import { AppStateInterface } from '../store/appState.interface';
 import { errorSelector, isLoadingSelector, postsSelector } from '../store/selectors';
 import { PostInterface } from './postState.interface';
+import { fromEvent, map } from 'rxjs';
 
 @Component({
   selector: 'app-post-redux',
@@ -23,7 +24,15 @@ export class PostReduxComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(PostActions.getPosts());
+    // this.store.dispatch(PostActions.getPosts());
+
+    const clicks = fromEvent<PointerEvent>(document, 'click');
+    const positions = clicks.pipe(
+      map(ev => [ev.clientX, ev.clientY]),
+      filter(x => x[0] > 200)
+      );
+
+    positions.subscribe(x => console.log(`x: ${x[0]}, y: ${x[1]}`));
   }
 
 }
