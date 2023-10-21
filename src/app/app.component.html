@@ -313,6 +313,8 @@
   <a routerLink="parent-child-interaction" routerLinkActive="active">Component Interaction</a>
   <a routerLink="/observables" routerLinkActive="active">Observables</a>
   <a routerLink="/ngrx" routerLinkActive="active">NgRx</a>
+  <span (click)="login()" *ngIf="!isLogin" style="float: right;">Login</span>
+  <span (click)="logOut()" *ngIf="isLogin" style="float: right;">Logout</span>
 </nav>
 
 <router-outlet></router-outlet>

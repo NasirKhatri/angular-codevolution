@@ -7,3 +7,11 @@ a {
 nav a.active {
     color: red;
 }
+
+span {
+    margin: 2px;
+    background-color: black;
+    color: white;
+    padding: 6px;
+    cursor: pointer;
+}

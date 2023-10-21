@@ -13,6 +13,7 @@ import { ParentInteractionComponent } from './parent-interaction/parent-interact
 import { ObservablesComponent } from './observables/observables.component';
 import { PostReduxComponent } from './post-redux/post-redux.component';
 import { ChildInteractionComponent } from './child-interaction/child-interaction.component';
+import { RoutingGuardService } from './services/routing-guard/routing-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: "/practice", pathMatch: "full"},
@@ -28,10 +29,10 @@ const routes: Routes = [
   { path: "employees", component: EmployeeListComponent},
   { path: "practice", component: TestComponent},
   { path: "tdf", component: TemplateFormComponent},
-  { path: "reactive-form", component: ReactiveFormComponent},
+  { path: "reactive-form", component: ReactiveFormComponent, canDeactivate: [RoutingGuardService]},
   { path: "parent-child-interaction", component: ParentInteractionComponent},
   { path: "observables", component: ObservablesComponent},
-  { path: "ngrx", component: PostReduxComponent},
+  { path: "ngrx", component: PostReduxComponent, canActivate: [RoutingGuardService]},
   { path: "**", component: PageNotFoundComponent} //wildcard route shold be last route in the configuration
 
 ];

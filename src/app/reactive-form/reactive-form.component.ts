@@ -3,6 +3,8 @@ import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@ang
 import { forbiddenFormValidator } from '../shared/userName.validator';
 import { PasswordValidator } from '../shared/password.validator';
 import { RegistrationService } from '../registration.service';
+import { IDeactivateComponent } from '../services/routing-guard/routing-guard.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-reactive-form',
@@ -10,8 +12,17 @@ import { RegistrationService } from '../registration.service';
   styleUrls: ['./reactive-form.component.css']
 })
 
-export class ReactiveFormComponent implements OnInit {
+export class ReactiveFormComponent implements OnInit, IDeactivateComponent {
   registrationForm!: FormGroup;
+
+  canExit() {
+    if(!this.registrationForm.pristine) {
+      return confirm('Are you sure you want to leave this page?')
+    } else {
+      return true;
+    }
+    
+  }
 
   get email() {
     return this.registrationForm.get("email");
@@ -55,6 +66,7 @@ export class ReactiveFormComponent implements OnInit {
         email?.updateValueAndValidity()
       }
     )
+    console.log(this.registrationForm);
   }
 
   //option 1
