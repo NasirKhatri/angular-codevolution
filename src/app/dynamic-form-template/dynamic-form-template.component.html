@@ -1,0 +1,48 @@
+<div class="container">
+<h3>{{form.formTitle}}</h3>
+<form #dynamicForm="ngForm" [formGroup]="dynamicFormGroup" class="row">
+    <ng-container *ngFor="let control of form.formControls">
+        <div class="mt-3" *ngIf="['text', 'email', 'password', 'number', 'date'].includes(control.type)" [class]="control.class">
+            <label class="form-label">{{control.label}}</label>
+            <input formControlName="{{control.name}}" class="form-control mt-1" [type]="control.type">
+            <small
+                *ngIf="dynamicFormGroup.get(control.name)?.invalid &&
+                        dynamicFormGroup.get(control.name)?.touched ||
+                        dynamicForm.submitted"
+                class="text-danger">{{getValidationError(control)}}</small>
+        </div>
+        <div class="mt-3" *ngIf="control.type === 'select'" [class]="control.class">
+            <label class="form-label">{{control.label}}</label> 
+            <select formControlName="{{control.name}}" class="form-select mt-1" aria-label="Floating label select example">
+                <option selected disabled value="">Select from Options</option>
+                <ng-container *ngFor="let opt of control.options">
+                    <option [value]="opt.value">{{opt.value}}</option>
+                </ng-container>
+            </select>
+            <small
+                *ngIf="dynamicFormGroup.get(control.name)?.invalid &&
+                dynamicFormGroup.get(control.name)?.touched ||
+                dynamicForm.submitted"
+                class="text-danger">{{getValidationError(control)}}</small>
+        </div>
+        <div class="mt-3" *ngIf="control.type === 'radio'" [class]="control.class">
+            <label>{{control?.label}}</label>
+            <ng-container *ngFor="let row of control.radioOptions; index as i">
+                <div class="form-check mt-1">
+                    <input formControlName="{{control.name}}" [value]="row" class="form-check-input" type="radio" [id]="row">
+                    <label class="form-check-label" [for]="row">{{row}}</label>
+                </div>
+            </ng-container>
+            <small
+                *ngIf="dynamicFormGroup.get(control.name)?.invalid &&
+                dynamicFormGroup.get(control.name)?.touched ||
+                dynamicForm.submitted" 
+                class="text-danger">{{getValidationError(control)}}</small>
+        </div>
+    </ng-container>
+    <div class="col-12 mt-3">
+        <button (click)="onSubmit()" type="submit" class="btn btn-primary mx-2">{{form.saveBtnTitle}}</button>
+        <button (click)="onReset()" type="submit" class="btn btn-secondary mx-2">{{form.resetBtnTitle}}</button>
+    </div>
+</form>
+</div>

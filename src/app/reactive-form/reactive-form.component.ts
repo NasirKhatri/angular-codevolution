@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { forbiddenFormValidator } from '../shared/userName.validator';
 import { PasswordValidator } from '../shared/password.validator';
-import { RegistrationService } from '../registration.service';
+import { RegistrationService } from '../services/registration/registration.service';
 import { IDeactivateComponent } from '../services/routing-guard/routing-guard.service';
 import { Observable } from 'rxjs';
 

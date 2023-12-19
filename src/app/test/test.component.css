@@ -1,0 +1,19 @@
+.red {
+    color: red;
+    font-size: 28px;
+}
+
+.green {
+    color: green;
+    font-size: 28px;
+}
+
+.success {
+    color: green;
+  }
+  .danger {
+    color: red;
+  }
+  .special {
+    font-style: italic;
+  }

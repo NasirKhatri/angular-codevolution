@@ -109,4 +109,16 @@
 </div>
 {{errMsg}}
 
+<h3>Custom Directive</h3>
+<p>Click below number it will change color based on number</p>
+<!-- <h6 [ngClass]="
+{ green: numberForCustomDirective % 5 == 0 && numberClicked, 
+  red: numberForCustomDirective % 5 != 0 && numberClicked}"
+  (click)="onNumberClick()"
+  >
+    {{numberForCustomDirective}}
+</h6> -->
+
+<h6 appHighlightColor [number]="numberForCustomDirective" [divisibleBy]="5">{{numberForCustomDirective}}</h6>
+
 

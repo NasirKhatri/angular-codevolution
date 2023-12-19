@@ -15,3 +15,13 @@ span {
     padding: 6px;
     cursor: pointer;
 }
+
+.red {
+    color: red;
+    font-size: 28px;
+}
+
+.green {
+    color: green;
+    font-size: 28px;
+}

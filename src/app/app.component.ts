@@ -22,4 +22,5 @@ export class AppComponent {
     this.ls.logout();
     this.isLogin = false;
   }
+
 }

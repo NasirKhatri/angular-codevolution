@@ -1,0 +1,218 @@
+{
+    "formTitle": "Dynamic Form",
+    "saveBtnTitle": "Register",
+    "resetBtnTitle": "Reset",
+    "formControls": [
+        {
+            "name": "FirstName",
+            "label": "First Name",
+            "value": "",
+            "placeholder": "",
+            "class": "col-md-6",
+            "type": "text",
+            "validators": [
+                {
+                    "validatorName": "required",
+                    "required": true,
+                    "message": "First Name is Required"
+                }
+            ]
+        },
+        {
+            "name": "LastName",
+            "label": "Last Name",
+            "value": "",
+            "placeholder": "",
+            "class": "col-md-6",
+            "type": "text",
+            "validators": [
+                {
+                    "validatorName": "required",
+                    "required": true,
+                    "message": "Last Name is Required"
+                },
+                {
+                    "validatorName": "minlength",
+                    "minLength": 5,
+                    "message": "Minimum 5 Chars"
+                }
+            ]
+        },
+        {
+            "name": "email",
+            "label": "Email",
+            "value": "",
+            "placeholder": "",
+            "class": "col-md-4",
+            "type": "email",
+            "validators": [
+                {
+                    "validatorName": "required",
+                    "required": true,
+                    "message": "Email is Required"
+                },
+                {
+                    "validatorName": "email",
+                    "email": "email",
+                    "message": "Email is not valid"
+                }
+            ]
+        },
+        {
+            "name": "mobile",
+            "label": "Mobile",
+            "value": "",
+            "placeholder": "",
+            "class": "col-md-4",
+            "type": "number",
+            "validators": [
+                {
+                    "validatorName": "required",
+                    "required": true,
+                    "message": "Mobile Number is Required"
+                },
+                {
+                    "validatorName": "maxlength",
+                    "maxLength": 10,
+                    "message": "Maximum 10 digits allowed"
+                }
+            ]
+        },
+        {
+            "name": "weight",
+            "label": "Weight",
+            "value": "",
+            "placeholder": "Should be In KGs",
+            "class": "col-md-4",
+            "type": "number",
+            "validators": [
+                {
+                    "validatorName": "required",
+                    "required": true,
+                    "message": "Weight is Required"
+                }
+            ]
+        },
+        {
+            "name": "height",
+            "label": "Height",
+            "value": "",
+            "placeholder": "Should be in Inches",
+            "class": "col-md-4",
+            "type": "number",
+            "validators": [
+                {
+                    "validatorName": "required",
+                    "required": true,
+                    "message": "Height is Required"
+                }
+            ]
+        },
+        {
+            "name": "gender",
+            "label": "Gender",
+            "placeholder": "",
+            "class": "col-md-4",
+            "type": "radio",
+            "radioOptions": [
+                "Male",
+                "Female"
+            ],
+            "validators": [
+                {
+                    "validatorName": "required",
+                    "required": true,
+                    "message": "Gender is Required"
+                }
+            ]
+        },
+        {
+            "name": "trainer",
+            "label": "Require Trainer",
+            "placeholder": "",
+            "class": "col-md-4",
+            "type": "radio",
+            "radioOptions": [
+                "Yes",
+                "No"
+            ],
+            "validators": [
+                {
+                    "validatorName": "required",
+                    "required": true,
+                    "message": "Selection is Required"
+                }
+            ]
+        },
+        {
+            "name": "package",
+            "label": "Package",
+            "placeholder": "",
+            "class": "col-md-4",
+            "type": "select",
+            "options": [
+                {
+                    "id": 1,
+                    "value": "Monthly"
+                },
+                {
+                    "id": 2,
+                    "value": "Quarterly"
+                },
+                {
+                    "id": 3,
+                    "value": "Yearly"
+                }
+            ],
+            "validators": [
+                {
+                    "validatorName": "required",
+                    "required": true,
+                    "message": "Package is Required"
+                }
+            ]
+        },
+        {
+            "name": "motivation",
+            "label": "What is Important to you?",
+            "placeholder": "",
+            "class": "col-md-4",
+            "type": "select",
+            "options": [
+                {
+                    "id": 1,
+                    "value": "Get Fit"
+                },
+                {
+                    "id": 2,
+                    "value": "Gain More Muscles"
+                },
+                {
+                    "id": 3,
+                    "value": "Weight Loss"
+                }
+            ],
+            "validators": [
+                {
+                    "validatorName": "required",
+                    "required": true,
+                    "message": "Package is Required"
+                }
+            ]
+        },
+        {
+            "name": "enquiryDate",
+            "label": "Date of Enquiry",
+            "class": "col-md-4",
+            "placeholder": "",
+            "type": "date",
+            "validators": [
+                {
+                    "validatorName": "required",
+                    "required": true,
+                    "message": "Enquiry Date is Required"
+                }
+            ]
+        }
+    ]
+}

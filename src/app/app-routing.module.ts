@@ -12,6 +12,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ParentInteractionComponent } from './parent-interaction/parent-interaction.component';
 import { ObservablesComponent } from './observables/observables.component';
 import { PostReduxComponent } from './post-redux/post-redux.component';
+import { DynamicFormCComponent } from './dynamic-form-c/dynamic-form-c.component';
 import { ChildInteractionComponent } from './child-interaction/child-interaction.component';
 import { RoutingGuardService } from './services/routing-guard/routing-guard.service';
 
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: "parent-child-interaction", component: ParentInteractionComponent},
   { path: "observables", component: ObservablesComponent},
   { path: "ngrx", component: PostReduxComponent, canActivate: [RoutingGuardService]},
+  { path: "dynamic-form", component: DynamicFormCComponent, canActivate: [RoutingGuardService]},
   { path: "**", component: PageNotFoundComponent} //wildcard route shold be last route in the configuration
 
 ];
@@ -55,5 +57,6 @@ export const routingComponents = [
   ParentInteractionComponent,
   ObservablesComponent,
   PostReduxComponent,
-  ChildInteractionComponent
+  ChildInteractionComponent,
+  DynamicFormCComponent
 ];

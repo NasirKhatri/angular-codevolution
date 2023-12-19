@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { User } from '../user';
-import { EnrollmentService } from '../enrollment.service';
+import { User } from '../services/user';
+import { EnrollmentService } from '../services/enrollment/enrollment.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 

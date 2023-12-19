@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
-import { PostInterface } from './post-redux/postState.interface';
+import { PostInterface } from '../../post-redux/postState.interface';
 
 @Injectable({
   providedIn: 'root'

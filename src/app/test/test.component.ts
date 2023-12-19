@@ -1,22 +1,11 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
-import { RecordsService } from "../records.service";
-import { IEmployee } from '../employee';
+import { RecordsService } from "../services/records/records.service";
+import { IEmployee } from '../services/employee';
 
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
-  //styleUrls: ['./test.component.css']
-  styles: [`
-    .success {
-      color: green;
-    }
-    .danger {
-      color: red;
-    }
-    .special {
-      font-style: italic;
-    }
-  `],
+  styleUrls: ['./test.component.css']
   //providers: [RecordsService] //If we provide service here, then this service will only be available in this component, hence we provide it in app module the root module
 })
 export class TestComponent implements OnInit {
@@ -31,6 +20,12 @@ export class TestComponent implements OnInit {
   public array = ["Nasir", "Shadab", "Danish", "Zeeshan"];
   public employees: IEmployee[] = [];
   public errMsg = "";
+  public numberForCustomDirective = 25;
+  public numberClicked = false;
+
+  onNumberClick() {
+    this.numberClicked = !this.numberClicked;
+  }
 
   //Fetching Data from Service Records
   infoRecieved1: string[] = [];
