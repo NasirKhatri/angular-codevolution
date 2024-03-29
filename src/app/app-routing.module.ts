@@ -15,6 +15,8 @@ import { PostReduxComponent } from './post-redux/post-redux.component';
 import { DynamicFormCComponent } from './dynamic-form-c/dynamic-form-c.component';
 import { ChildInteractionComponent } from './child-interaction/child-interaction.component';
 import { RoutingGuardService } from './services/routing-guard/routing-guard.service';
+import { RectiveformtwoComponent } from './rectiveformtwo/rectiveformtwo.component';
+import { TdftwoComponent } from './tdftwo/tdftwo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/practice", pathMatch: "full"},
@@ -35,6 +37,8 @@ const routes: Routes = [
   { path: "observables", component: ObservablesComponent},
   { path: "ngrx", component: PostReduxComponent, canActivate: [RoutingGuardService]},
   { path: "dynamic-form", component: DynamicFormCComponent, canActivate: [RoutingGuardService]},
+  { path: "rf-practice2", component: RectiveformtwoComponent},
+  { path: "tdf-practice2", component: TdftwoComponent},
   { path: "**", component: PageNotFoundComponent} //wildcard route shold be last route in the configuration
 
 ];

@@ -18,6 +18,8 @@ import { PostEffects } from './store/effect';
 import { HighlightColorDirective } from './directives/highlight-color.directive';
 import { TokenInterceptor } from './services/token/token.interceptor';
 import { DynamicFormTemplateComponent } from './dynamic-form-template/dynamic-form-template.component';
+import { TdftwoComponent } from './tdftwo/tdftwo.component';
+import { RectiveformtwoComponent } from './rectiveformtwo/rectiveformtwo.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { DynamicFormTemplateComponent } from './dynamic-form-template/dynamic-fo
     routingComponents,
     HighlightColorDirective,
     DynamicFormTemplateComponent,
+    TdftwoComponent,
+    RectiveformtwoComponent,
   ],
   imports: [
     BrowserModule,
