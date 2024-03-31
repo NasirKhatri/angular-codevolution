@@ -17,6 +17,7 @@ import { ChildInteractionComponent } from './child-interaction/child-interaction
 import { RoutingGuardService } from './services/routing-guard/routing-guard.service';
 import { RectiveformtwoComponent } from './rectiveformtwo/rectiveformtwo.component';
 import { TdftwoComponent } from './tdftwo/tdftwo.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/practice", pathMatch: "full"},
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: "dynamic-form", component: DynamicFormCComponent, canActivate: [RoutingGuardService]},
   { path: "rf-practice2", component: RectiveformtwoComponent},
   { path: "tdf-practice2", component: TdftwoComponent},
+  { path: "rxjs", component: RxjsComponent},
   { path: "**", component: PageNotFoundComponent} //wildcard route shold be last route in the configuration
 
 ];

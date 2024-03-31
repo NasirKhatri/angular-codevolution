@@ -20,6 +20,7 @@ import { TokenInterceptor } from './services/token/token.interceptor';
 import { DynamicFormTemplateComponent } from './dynamic-form-template/dynamic-form-template.component';
 import { TdftwoComponent } from './tdftwo/tdftwo.component';
 import { RectiveformtwoComponent } from './rectiveformtwo/rectiveformtwo.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { RectiveformtwoComponent } from './rectiveformtwo/rectiveformtwo.compone
     DynamicFormTemplateComponent,
     TdftwoComponent,
     RectiveformtwoComponent,
+    RxjsComponent,
   ],
   imports: [
     BrowserModule,

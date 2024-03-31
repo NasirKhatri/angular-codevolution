@@ -19,4 +19,21 @@ export class EnrollmentService {
   errorHandler(error: HttpErrorResponse) {
     return throwError(() => error);
   }
+
+  mergeMap(data: any) {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        res(`Resolved ${data}`);
+      }, 1000)
+    })
+  }
+
+  switchMap(data: any) {
+    console.log(data);
+    return new Promise<string>((res, rej) => {
+      setTimeout(() => {
+        res("recieved request to search " + data)
+      }, 1000);
+    })
+  }
 }
